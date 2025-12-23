@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI UI/UX Quality Inspector | Deep Learning Analysis</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container hero-content text-center">
+        <div class="hero-badge">
+            <i class="bi bi-cpu"></i>
+            <span>Powered by Deep Learning</span>
+        </div>
+        <h1 class="hero-title">AI-Based UI/UX Quality Inspector</h1>
+        <p class="hero-subtitle">
+            Leverage the power of Convolutional Neural Networks to analyze your UI designs 
+            and receive actionable insights for better user experiences.
+        </p>
+    </div>
+</section>
+
+<!-- Main Content -->
+<div class="container main-content">
+
+    <!-- Features Row -->
+    <div class="row g-4 mb-4 features-section">
+        <div class="col-md-4">
+            <div class="feature-card animate-fade-in animate-delay-1">
+                <div class="feature-icon purple">
+                    <i class="bi bi-eye"></i>
+                </div>
+                <h5>Visual Analysis</h5>
+                <p>Our CNN model analyzes visual patterns to detect layout and design issues automatically.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card animate-fade-in animate-delay-2">
+                <div class="feature-icon blue">
+                    <i class="bi bi-graph-up"></i>
+                </div>
+                <h5>Quality Scoring</h5>
+                <p>Get an objective UX quality score from 0-100 based on multiple design metrics.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card animate-fade-in animate-delay-3">
+                <div class="feature-icon green">
+                    <i class="bi bi-lightbulb"></i>
+                </div>
+                <h5>Smart Suggestions</h5>
+                <p>Receive AI-generated recommendations to improve your UI design quality.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Upload Section -->
+        <div class="col-lg-5">
+            <div class="card upload-card p-4 mb-4">
+                <h4 class="fw-bold mb-3">
+                    <i class="bi bi-cloud-upload me-2 text-primary"></i>
+                    Analyze Your Design
+                </h4>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="upload-zone mb-3" onclick="document.getElementById('fileInput').click()">
+                        <i class="bi bi-image"></i>
+                        <h5>Drop your UI screenshot here</h5>
+                        <p>or click to browse files</p>
+                        <p class="text-muted small">Supports PNG, JPG, JPEG</p>
+                    </div>
+                    <input type="file" id="fileInput" name="image" class="d-none" accept="image/*" required 
+                           onchange="document.getElementById('fileName').textContent = this.files[0]?.name || ''">
+                    <p id="fileName" class="text-primary fw-medium mb-3"></p>
+                    <button type="submit" class="btn btn-primary-custom w-100">
+                        <i class="bi bi-search me-2"></i>
+                        Analyze UI Design
+                    </button>
+                </form>
+            </div>
+
+            <!-- How It Works -->
+            <div class="how-it-works">
+                <h3><i class="bi bi-gear me-2"></i>How It Works</h3>
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h5>Upload Screenshot</h5>
+                        <p>Upload a screenshot of your UI design or web page.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h5>CNN Processing</h5>
+                        <p>Our Convolutional Neural Network analyzes visual patterns and layout structures.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h5>Issue Detection</h5>
+                        <p>The model identifies alignment issues, spacing problems, and visual inconsistencies.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h5>Get Insights</h5>
+                        <p>Receive a quality score and actionable suggestions to improve your design.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="col-lg-7">
+            {% if result %}
+            <div class="card results-card p-4 animate-fade-in">
+                <div class="card-header-custom mb-4" style="margin: -1.5rem -1.5rem 1.5rem -1.5rem; border-radius: 16px 16px 0 0;">
+                    <h4><i class="bi bi-clipboard-data me-2"></i>Analysis Results</h4>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="result-image-container">
+                            <img src="{{ result.image }}" alt="Analyzed UI Screenshot">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="score-display">
+                            <div class="score-value">{{ result.score }}</div>
+                            <div class="score-label">UX Quality Score (out of 100)</div>
+                            <div class="score-bar">
+                                <div class="score-bar-fill" data-width="{{ result.score|int }}"></div>
+                            </div>
+                        </div>
+                        
+                        <script>
+                            document.querySelector('.score-bar-fill').style.width = 
+                                document.querySelector('.score-bar-fill').dataset.width + '%';
+                        </script>
+                        
+                        <h5 class="fw-bold mb-3">
+                            <i class="bi bi-exclamation-triangle me-2 text-warning"></i>
+                            Detected Issues
+                        </h5>
+                        
+                        <div class="issue-item">
+                            <div class="issue-label">
+                                <i class="bi bi-arrows-move text-primary"></i>
+                                <span>Alignment Issue</span>
+                            </div>
+                            {% if result.flags[0] > 0.5 %}
+                            <span class="status-badge danger">Detected</span>
+                            {% else %}
+                            <span class="status-badge success">Clear</span>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="issue-item">
+                            <div class="issue-label">
+                                <i class="bi bi-distribute-vertical text-primary"></i>
+                                <span>Spacing Issue</span>
+                            </div>
+                            {% if result.flags[1] > 0.5 %}
+                            <span class="status-badge danger">Detected</span>
+                            {% else %}
+                            <span class="status-badge success">Clear</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <hr class="my-4">
+                
+                <div class="suggestions-section">
+                    <h5>
+                        <i class="bi bi-lightbulb-fill text-warning"></i>
+                        Improvement Suggestions
+                    </h5>
+                    {% for tip in result.suggestions %}
+                    <div class="suggestion-item">
+                        <i class="bi bi-arrow-right-circle-fill"></i>
+                        <p>{{ tip }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% else %}
+            <!-- Placeholder when no results -->
+            <div class="card p-5 text-center" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                <div>
+                    <i class="bi bi-upload display-1 text-muted mb-3"></i>
+                    <h4 class="text-muted">No Analysis Yet</h4>
+                    <p class="text-muted">Upload a UI screenshot to see the analysis results here.</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Technology Section -->
+    <div class="tech-section">
+        <h4><i class="bi bi-stack me-2"></i>Technology Stack</h4>
+        <div class="text-center">
+            <span class="tech-badge"><i class="bi bi-braces"></i> Python</span>
+            <span class="tech-badge"><i class="bi bi-cpu"></i> TensorFlow/Keras</span>
+            <span class="tech-badge"><i class="bi bi-diagram-3"></i> CNN Architecture</span>
+            <span class="tech-badge"><i class="bi bi-globe"></i> Flask</span>
+            <span class="tech-badge"><i class="bi bi-image"></i> Computer Vision</span>
+            <span class="tech-badge"><i class="bi bi-lightbulb"></i> Explainable AI</span>
+        </div>
+        <p class="text-center mt-3 mb-0" style="opacity: 0.8;">
+            This project uses a custom-trained Convolutional Neural Network to analyze UI screenshots 
+            and provide quality assessments based on visual design principles.
+        </p>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>
+            <i class="bi bi-code-slash me-1"></i>
+            Built with <strong>Deep Learning</strong> & <strong>Computer Vision</strong>
+            <span class="mx-2">|</span>
+            <a href="#">View on GitHub</a>
+        </p>
+        <p class="small text-muted mt-1">Portfolio Project — AI-Based UI/UX Quality Inspector</p>
+    </div>
+</footer>
+
+</body>
+</html>
