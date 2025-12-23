@@ -12,7 +12,7 @@ UPLOAD_FOLDER = "static/uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Load model ONCE (important)
-model = tf.keras.models.load_model("model/uiux_model.keras")
+model = tf.keras.models.load_model("model/uiux_final_model.keras")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
