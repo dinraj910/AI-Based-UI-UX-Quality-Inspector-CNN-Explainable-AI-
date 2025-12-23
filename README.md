@@ -116,9 +116,9 @@ Built with a custom-trained **Convolutional Neural Network (CNN)**, this tool ev
 │    │  📊 Results   │◀────│ 💡 Suggestions│◀────│ 🎯 Inference  │          │
 │    │   Display    │     │   Engine     │     │   Pipeline   │          │
 │    └──────────────┘     └──────────────┘     └──────────────┘          │
-│                                                                          │
+│                                                                         │
 └─────────────────────────────────────────────────────────────────────────┘
-```
+```     
 
 ### 🔬 Technical Deep Dive
 
@@ -253,53 +253,30 @@ python app.py
 <div align="center">
 
 ### 🏠 Home Page
-> *Beautiful, modern interface with drag-and-drop upload*
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  🎨 AI-Based UI/UX Quality Inspector                        │
-│  ─────────────────────────────────────────────────────────  │
-│                                                             │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────┐ │
-│  │  👁️ Visual      │  │  📊 Quality     │  │  💡 Smart   │ │
-│  │    Analysis     │  │    Scoring      │  │  Suggestions│ │
-│  └─────────────────┘  └─────────────────┘  └─────────────┘ │
-│                                                             │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │            📤 Drop your UI screenshot here           │   │
-│  │               or click to browse files               │   │
-│  └─────────────────────────────────────────────────────┘   │
-│                                                             │
-│              [🔍 Analyze UI Design]                         │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-```
+![alt text](screenshots/1.png)
+
+![alt text](screenshots/2.png)
+
+![alt text](screenshots/3.png)
+
+![alt text](screenshots/4.png)
+
+
 
 ### 📊 Analysis Results
 > *Comprehensive quality assessment with actionable insights*
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  📊 Analysis Results                                        │
-│  ─────────────────────────────────────────────────────────  │
-│                                                             │
-│  ┌──────────────┐    ┌────────────────────────────────┐   │
-│  │              │    │  UX Quality Score               │   │
-│  │  [Uploaded   │    │  ┌────────────────────────┐    │   │
-│  │   Image      │    │  │         85/100         │    │   │
-│  │   Preview]   │    │  └────────────────────────┘    │   │
-│  │              │    │  ████████████████░░░░ 85%      │   │
-│  └──────────────┘    └────────────────────────────────┘   │
-│                                                             │
-│  ⚠️ Detected Issues                                        │
-│  ├── 📐 Alignment Issue: ✅ Clear                          │
-│  └── 📏 Spacing Issue:   ⚠️ Detected                       │
-│                                                             │
-│  💡 Improvement Suggestions                                 │
-│  └── Improve padding and margins to reduce visual clutter  │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-```
+![alt text](screenshots/5.png)
+
+![alt text](screenshots/6.png)
+
+![alt text](screenshots/7.png)
+
+![alt text](screenshots/9.png)
+
+![alt text](screenshots/10.png)
+
 
 </div>
 
@@ -448,16 +425,16 @@ in the Software without restriction...
 
 <div align="center">
 
-<img src="https://avatars.githubusercontent.com/u/yourusername?v=4" width="100" style="border-radius: 50%"/>
+<img src="https://avatars.githubusercontent.com/u/dinraj910?v=4" width="100" style="border-radius: 50%"/>
 
-### **Your Name**
+### **DINRAJ K DINESH**
 
 *Deep Learning Engineer | Computer Vision Enthusiast | UI/UX Advocate*
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/yourprofile)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/dinraj-k-dinesh-07956b254)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github)](https://github.com/dinraj910)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-purple?style=for-the-badge&logo=google-chrome)](https://yourportfolio.com)
-[![Email](https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail)](mailto:your.email@example.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-purple?style=for-the-badge&logo=google-chrome)](https://dinrajkdinesh.netlify.app/)
+[![Email](https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail)](dinrajdinesh564@gmail.com)
 
 </div>
 
