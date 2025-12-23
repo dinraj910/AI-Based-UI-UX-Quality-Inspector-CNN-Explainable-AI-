@@ -2,6 +2,10 @@ from flask import Flask, render_template, request
 import os
 import tensorflow as tf
 
+# Optimize TensorFlow for CPU-only environment
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+
 from utils.preprocess import preprocess_image
 from utils.inference import run_inference
 from utils.suggestions import generate_suggestions
@@ -11,8 +15,10 @@ app = Flask(__name__)
 UPLOAD_FOLDER = "static/uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# Load model ONCE (important)
+# Load model ONCE at startup (important for performance)
+print("Loading model...")
 model = tf.keras.models.load_model("model/uiux_final_model.keras")
+print("Model loaded successfully!")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
